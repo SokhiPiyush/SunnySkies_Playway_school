@@ -239,6 +239,15 @@
             opacity: 1;
         }
 
+        /* Night theme transition for night care section */
+        .night-theme::before {
+            background: linear-gradient(135deg, #0F0F23 0%, #1A1B2E 50%, #0F0F23 100%);
+        }
+
+        .night-theme::after {
+            opacity: 0;
+        }
+
         /* Cloud Animation with Smoother Transition */
         .clouds {
             position: fixed;
@@ -277,6 +286,7 @@
         .card-text {
             color: rgba(255, 255, 255, 0.8);
             transition: color 1.5s ease;
+            font-weight: bold;
         }
 
         .stat-label {
@@ -293,6 +303,40 @@
         .gallery-placeholder {
             color: rgba(255, 255, 255, 0.7);
             transition: color 1.5s ease;
+        }
+
+        .photo-gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        .photo-gallery-grid img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+            transition: transform 0.3s ease;
+            display: block;
+        }
+
+        .photo-gallery-grid img:hover {
+            transform: scale(1.03);
+        }
+
+        @media (max-width: 992px) {
+            .photo-gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .photo-gallery-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         /* Text colors for light background */
@@ -348,6 +392,33 @@
 
         .scrolled-bg .footer-link:hover {
             color: #2c3e50 !important;
+        }
+
+        /* Night theme text colors */
+        .night-theme .section-title {
+            color: #ffffff !important;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .night-theme .section-subtitle {
+            color: rgba(255, 255, 255, 0.8) !important;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .night-theme .card-title {
+            color: #ffffff !important;
+        }
+
+        .night-theme .card-text {
+            color: rgba(255, 255, 255, 0.8) !important;
+        }
+
+        .night-theme .contact-title {
+            color: #ffffff !important;
+        }
+
+        .night-theme .contact-text {
+            color: rgba(255, 255, 255, 0.8) !important;
         }
 
         /* Footer logo text transitions */
@@ -524,7 +595,6 @@
             padding: 1.5rem 3rem;
             background: rgba(15, 15, 35, 0.95);
             backdrop-filter: blur(20px);
-            /* border-bottom: 1px solid rgba(255, 255, 255, 0.1); */
             z-index: 80;
             transition: all 1.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
@@ -616,6 +686,70 @@
             width: 100%;
         }
 
+        /* Improved Dropdown Menu Styles with Hover Delay */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: rgba(15, 15, 35, 0.98);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            min-width: 200px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            z-index: 90;
+            margin-top: 8px;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+
+        .dropdown-content.show {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .dropdown-content a {
+            color: var(--text-secondary);
+            padding: 12px 20px;
+            text-decoration: none;
+            display: block;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            margin: 4px;
+        }
+
+        .dropdown-content a:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-primary);
+        }
+
+        .scrolled-navbar .dropdown-content {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .scrolled-navbar .dropdown-content a {
+            color: #34495e;
+        }
+
+        .scrolled-navbar .dropdown-content a:hover {
+            background: rgba(0, 0, 0, 0.05);
+            color: #2c3e50;
+        }
+
         .nav-cta {
             background: linear-gradient(135deg, #4A90E2 0%, #2E5BBA 100%);
             color: var(--white);
@@ -699,7 +833,6 @@
         }
 
         .btn-primary {
-            /* background: var(--gradient-secondary); */
             background: linear-gradient(135deg, #4A90E2 0%, #2E5BBA 100%);
             color: var(--white);
             padding: 1rem 2rem;
@@ -832,7 +965,7 @@
             margin: 0 auto;
         }
 
-        /* Cards Grid */
+        /* Cards Grid with Background Images */
         .cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -849,6 +982,7 @@
             transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
+            cursor: pointer;
         }
 
         .card::before {
@@ -860,6 +994,164 @@
             height: 1px;
             background: var(--gradient-accent);
         }
+
+        /* Background images for Why Choose cards */
+        .card.creative-expression::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("media/images/1.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            opacity: 0.3;
+            z-index: -1;
+        }
+
+        .card.holistic-development::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("media/images/extra/10.jpeg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            opacity: 0.3;
+            z-index: -1;
+        }
+
+        .card.social-learning::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("media/images/extra/6.jpeg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            opacity: 0.3;
+            z-index: -1;
+        }
+
+        .card.stem-exploration::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("media/images/extra/2.jpeg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            opacity: 0.3;
+            z-index: -1;
+        }
+
+        .card.global-perspective::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("media/images/global.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            opacity: 0.3;
+            z-index: -1;
+        }
+
+        .card.family-partnership::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("media/images/extra/14.jpeg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            opacity: 0.3;
+            z-index: -1;
+        }
+
+        .card-bg {
+            position: relative;
+            overflow: hidden;
+            min-height: 250px;
+            z-index: 1;
+        }
+
+        .card-bg::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: url("/media/images/extra/17.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            opacity: 0.3;
+            z-index: 0;
+        }
+
+        .card-bg>* {
+            position: relative;
+            z-index: 1;
+            /* ensures content is above the background */
+        }
+
+        .card-bg2 {
+            position: relative;
+            overflow: hidden;
+            min-height: 250px;
+            z-index: 1;
+        }
+
+        .card-bg2::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: url("/media/images/extra/12.jpeg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            opacity: 0.3;
+            z-index: 0;
+        }
+
+        .card-bg2>* {
+            position: relative;
+            z-index: 1;
+            /* ensures content is above the background */
+        }
+
+        .card-bg3 {
+            position: relative;
+            overflow: hidden;
+            min-height: 250px;
+            z-index: 1;
+        }
+
+        .card-bg3::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: url("/media/images/extra/1.jpeg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            opacity: 0.3;
+            z-index: 0;
+        }
+
+        .card-bg3>* {
+            position: relative;
+            z-index: 1;
+            /* ensures content is above the background */
+        }
+
 
         .card:hover {
             transform: translateY(-10px);
@@ -877,6 +1169,8 @@
             justify-content: center;
             font-size: 1.75rem;
             margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
         }
 
         .card-title {
@@ -885,18 +1179,22 @@
             font-weight: 600;
             margin-bottom: 1rem;
             color: var(--text-primary);
+            position: relative;
+            z-index: 1;
         }
 
         .card-text {
             color: var(--text-secondary);
             line-height: 1.7;
+            position: relative;
+            z-index: 1;
         }
 
         /* Video Section */
         .video-section {
             position: relative;
             margin: 6rem 0;
-            border-radius: 30px;
+            border-radius: 20px;
             overflow: hidden;
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(20px);
@@ -904,7 +1202,7 @@
         }
 
         .video-placeholder {
-            height: 400px;
+            height: 600px;
             background: var(--gradient-primary);
             display: flex;
             align-items: center;
@@ -914,16 +1212,33 @@
             color: var(--white);
         }
 
-        .video-placeholder-icon {
-            font-size: 4rem;
-            opacity: 0.8;
+        /* Parallax wrapper inherits your blurred glass card */
+        .video-parallax {
+            position: relative;
+            height: 600px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .video-placeholder-text {
-            font-size: 1.1rem;
+        /* Portrait video fills height, keeps ratio */
+        .video-parallax video {
+            position: absolute;
+            top: 180%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            object-fit: cover;
+            pointer-events: none;
+        }
+
+        /* Optional overlay text/icon */
+        .video-overlay {
+            position: relative;
             text-align: center;
-            opacity: 0.9;
-            transition: color 1.5s ease;
+            color: var(--white);
+            z-index: 2;
         }
 
         /* Stats Section */
@@ -960,48 +1275,156 @@
         }
 
         /* Gallery Grid */
+        /* Masonry‑style gallery using CSS columns */
         .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            column-count: 3;
+            /* desktop: 3 columns */
+            column-gap: 2rem;
             margin-top: 4rem;
         }
 
         .gallery-item {
-            aspect-ratio: 1;
-            background: var(--gradient-primary);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            transition: all 0.4s ease;
-            cursor: pointer;
+            /* let each tile flow naturally */
+            margin-bottom: 2rem;
+            /* vertical gap between items */
+            break-inside: avoid;
+            /* keep each item intact */
             overflow: hidden;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
             position: relative;
         }
 
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            /* keep original ratio */
+            display: block;
+            border-radius: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        /* hover overlay */
         .gallery-item::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.3);
+            inset: 0;
+            background: rgba(0, 0, 0, 0.25);
             opacity: 0;
+            border-radius: 20px;
             transition: opacity 0.3s ease;
         }
 
         .gallery-item:hover {
-            transform: scale(1.05);
+            transform: scale(1.03);
         }
 
         .gallery-item:hover::before {
             opacity: 1;
         }
 
-        /* Contact Section */
+        /* ---------- responsive columns ---------- */
+        @media (max-width: 992px) {
+            .gallery-grid {
+                column-count: 2;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .gallery-grid {
+                column-count: 1;
+            }
+        }
+
+
+
+        /* Vision & Mission Styled Layout */
+        .vision-mission-container {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            padding: 4rem 3rem;
+            margin: 4rem 0;
+        }
+
+        .vision-mission-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .vision-mission-item {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .vision-mission-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--gradient-accent);
+            border-radius: 2px;
+        }
+
+        .vision-mission-title {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .vision-mission-text {
+            color: #f2f2f2;
+            line-height: 1.6;
+            font-size: 1.1rem;
+            font-weight: bolder;
+        }
+
+        .other-content {
+            text-align: left;
+        }
+
+        .other-content h3 {
+            font-family: var(--font-display);
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .other-content h3::before {
+            content: '✨';
+            font-size: 1.2rem;
+        }
+
+        .other-content h4 {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            margin-top: 2rem;
+        }
+
+        /* Contact Section with Background */
         .contact-section {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(20px);
@@ -1010,6 +1433,66 @@
             padding: 4rem 3rem;
             text-align: center;
             margin: 6rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Daycare Section with Background */
+        .daycare-section {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .daycare-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('/media/images/extra/10.jpeg') center/cover;
+            opacity: 0.25;
+            z-index: -1;
+        }
+
+        .daycare-section .contact-section {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Night Care Section with Background */
+        .nightcare-section {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nightcare-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('/media/images/extra/11.jpeg') center/cover;
+            opacity: 0.25;
+            z-index: -1;
+        }
+
+        .nightcare-section .contact-section {
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .nightcare-section .content-highlight {
+            color: #FFD700 !important;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .nightcare-section .content-text {
+            color: #ffffff !important;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
         }
 
         .contact-grid {
@@ -1043,6 +1526,60 @@
             color: var(--text-secondary);
             font-size: 0.95rem;
             transition: color 1.5s ease;
+        }
+
+        /* Additional sections content styles */
+        .content-text {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .content-highlight {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .admission-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .admission-table th,
+        .admission-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .admission-table th {
+            background: rgba(255, 255, 255, 0.1);
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .admission-table td {
+            color: var(--text-secondary);
+        }
+
+        .scrolled-bg .admission-table th {
+            color: #2c3e50 !important;
+        }
+
+        .scrolled-bg .admission-table td {
+            color: #34495e !important;
+        }
+
+        .scrolled-bg .content-text {
+            color: #34495e !important;
+        }
+
+        .scrolled-bg .content-highlight {
+            color: #2c3e50 !important;
         }
 
         /* Footer */
@@ -1119,6 +1656,20 @@
                 grid-template-columns: repeat(2, 1fr);
                 gap: 2rem;
             }
+
+            .vision-mission-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .dropdown-content {
+                position: static;
+                display: block;
+                box-shadow: none;
+                background: transparent;
+                border: none;
+                margin-top: 0;
+            }
         }
 
         /* Scroll Animations */
@@ -1136,28 +1687,6 @@
 </head>
 
 <body>
-    <!-- 
-    🎨 LOGO INTEGRATION INSTRUCTIONS:
-    
-    The user has provided a beautiful logo for "Sunny Skies Playway School" that includes:
-    - "SUNNY" in yellow letters
-    - A cute sun character with rays behind a light blue cloud  
-    - "Skies" in gray letters
-    - "PLAYWAY AND DAYCARE" underneath
-    
-    TO INTEGRATE THE LOGO:
-    1. HERO SECTION: Replace the placeholder in the hero section with:
-       <img src="path/to/sunny-skies-logo.png" alt="Sunny Skies Playway School Logo" 
-            style="max-width: 90%; height: auto; max-height: 200px;">
-    
-    2. NAVBAR: Optionally replace the sun emoji + text with a smaller version:
-       <img src="path/to/logo.png" alt="Sunny Skies" style="height: 40px;">
-    
-    3. FOOTER: Can also use the logo instead of text if desired
-    
-    The logo perfectly matches the playful sky theme with clouds and sun elements!
-    -->
-
     <!-- Custom Cursor -->
     <div class="cursor"></div>
     <div class="cursor-follower"></div>
@@ -1184,22 +1713,23 @@
     <nav class="navbar">
         <div class="nav-container">
             <a href="#" class="logo">
-                <!-- Option to use actual logo: <img src="path/to/logo.png" alt="Sunny Skies" style="height: 40px;"> -->
-                <!-- <div class="logo-icon">☀️</div> -->
                 <img src="./sunny-skies-logo.png" alt="Sunny Skies" style="height: 60px;">
-                <!-- <div>
-                    <div class="logo-text">Sunny Skies</div>
-                    <div class="logo-subtext">Playway & Daycare</div>
-                </div> -->
             </a>
             <ul class="nav-menu">
                 <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#programs" class="nav-link">Programs</a></li>
-                <li><a href="#activities" class="nav-link">Activities</a></li>
+                <li class="dropdown">
+                    <a href="#programs" class="nav-link">Programs</a>
+                    <div class="dropdown-content">
+                        <a href="nursery.html">Nursery</a>
+                        <a href="kg.html">Kinder Garden (KG)</a>
+                    </div>
+                </li>
                 <li><a href="#gallery" class="nav-link">Gallery</a></li>
+                <li><a href="#daycare" class="nav-link">Daycare</a></li>
+                <li><a href="#nightcare" class="nav-link">Night care</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
-            <a href="#admission" class="nav-cta">Apply Now</a>
+            <a href="https://forms.gle/BBnaciFZCXwcTWtg8" target="_blank" class="nav-cta">Apply Now</a>
         </div>
     </nav>
 
@@ -1217,10 +1747,10 @@
             style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(45deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%); z-index: -1;">
             <div
                 style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; opacity: 0.1;">
-                <div style="font-size: 4rem; margin-bottom: 1rem;">🎬</div>
-                <div style="font-size: 1.2rem; color: white;">Background Video Placeholder</div>
-                <div style="font-size: 0.9rem; color: rgba(255,255,255,0.7); margin-top: 0.5rem;">Children playing,
-                    learning, and growing</div>
+                <!-- <div style="font-size: 4rem; margin-bottom: 1rem;">🎬</div> -->
+                <!-- <div style="font-size: 1.2rem; color: white;">Background Video Placeholder</div> -->
+                <!-- <div style="font-size: 0.9rem; color: rgba(255,255,255,0.7); margin-top: 0.5rem;">Children playing,
+                    learning, and growing</div> -->
             </div>
         </div>
 
@@ -1236,7 +1766,8 @@
                     <span>Discover Programs</span>
                     <span>✨</span>
                 </a>
-                <a href="#contact" class="btn-primary btn-secondary">
+                <a href="https://wa.me/917678488905?text=Hi%20Sunny%20Skies,%20I'd%20like%20to%20schedule%20a%20visit."
+                    target="_blank" class="btn-primary btn-secondary">
                     <span>Schedule Visit</span>
                     <span>🏫</span>
                 </a>
@@ -1253,41 +1784,157 @@
         </div>
 
         <div class="cards-grid">
-            <div class="card">
+            <div class="card creative-expression">
                 <div class="card-icon">🎨</div>
                 <h3 class="card-title">Creative Expression</h3>
                 <p class="card-text">Art, music, drama, and creative storytelling unlock your child's imagination and
                     build confidence through self-expression.</p>
             </div>
-            <div class="card">
+            <div class="card holistic-development">
                 <div class="card-icon">🌱</div>
                 <h3 class="card-title">Holistic Development</h3>
                 <p class="card-text">Balanced approach to emotional, social, cognitive, and physical growth through
                     carefully designed activities.</p>
             </div>
-            <div class="card">
+            <div class="card social-learning">
                 <div class="card-icon">👥</div>
                 <h3 class="card-title">Social Learning</h3>
                 <p class="card-text">Collaborative play, team projects, and peer interaction foster essential social
                     skills and emotional intelligence.</p>
             </div>
-            <div class="card">
+            <div class="card stem-exploration">
                 <div class="card-icon">🔬</div>
                 <h3 class="card-title">STEM Exploration</h3>
                 <p class="card-text">Age-appropriate science, technology, and mathematical concepts introduced through
                     hands-on experiments and discovery.</p>
             </div>
-            <div class="card">
+            <div class="card global-perspective">
                 <div class="card-icon">🌍</div>
                 <h3 class="card-title">Global Perspective</h3>
                 <p class="card-text">Cultural awareness, multilingual exposure, and global citizenship values prepare
                     children for an interconnected world.</p>
             </div>
-            <div class="card">
+            <div class="card family-partnership">
                 <div class="card-icon">👨‍👩‍👧‍👦</div>
                 <h3 class="card-title">Family Partnership</h3>
                 <p class="card-text">Strong parent-school collaboration with regular communication, workshops, and
                     involvement in your child's journey.</p>
+            </div>
+        </div>
+
+        <!-- Additional About Content -->
+        <div style="margin-top: 6rem;">
+            <div class="cards-grid">
+                <div class="card card-bg">
+                    <div class="card-icon">⭐</div>
+                    <h3 class="card-title">30 Yrs+ Experience</h3>
+                    <p class="card-text">Three decades of excellence in early childhood education, trusted by
+                        generations of families.</p>
+                </div>
+
+                <div class="card card-bg2">
+                    <div class="card-icon">🏆</div>
+                    <h3 class="card-title">The Most Trusted Preschool in Ghaziabad</h3>
+                    <p class="card-text">Recognized for our commitment to quality education and child development in the
+                        region.</p>
+                </div>
+                <div class="card card-bg3">
+                    <div class="card-icon">🚀</div>
+                    <h3 class="card-title">The Most Innovative Preschool in Ghaziabad</h3>
+                    <p class="card-text">Leading the way with cutting-edge teaching methods and modern educational
+                        approaches.</p>
+                </div>
+            </div>
+
+            <!-- Vision & Mission Styled Section -->
+            <div class="vision-mission-container">
+                <div class="section-header">
+                    <h2 class="section-title">Our Vision and Mission</h2>
+                </div>
+
+                <div class="vision-mission-grid">
+                    <div class="vision-mission-item">
+                        <h3 class="vision-mission-title">Our Vision</h3>
+                        <p class="content-text">Our Vision is to enhance your child's potential for success in
+                            their
+                            holistic developments.</p>
+                    </div>
+
+                    <div class="vision-mission-item">
+                        <h3 class="vision-mission-title">Our Mission</h3>
+                        <p class="content-text">Our mission is to provide a progressive immersion program that
+                            addresses
+                            each child's holistic development (physical, social, emotional and cognitive) and fosters
+                            individuality, confidence and creativity in a stimulating, fun and safe preschool.</p>
+                    </div>
+                </div>
+
+                <div class="other-content">
+                    <h3>Teaching Methods</h3>
+                    <p class="content-text">We provide high quality care and education for children below statutory
+                        school age; work in partnership with parents to help children to learn and develop; add to the
+                        life and well-being of the local community; and offer children and their parents a service that
+                        promotes equality and values diversity.</p>
+
+                    <h3>Curriculum</h3>
+                    <p class="content-text">Social and emotional development to foster a child's sense of self, enhance
+                        his or her ability to make friends, and create openness to learning. Physical development to
+                        strengthen large and small muscles, coordinate movement, and improve overall health and growth.
+                        Creative expression and aesthetic development to foster a child's appreciation for the arts
+                        music, movement, dramatic play, and visual arts.</p>
+
+                    <h3>Objective</h3>
+                    <p class="content-text">Express feelings and develop emotional intelligence through guided
+                        activities and supportive learning environments.</p>
+
+                    <h3>Admissions Programme</h3>
+                    <p class="content-text">At SUNNY Skies Play School, we conduct the following programme, keeping in
+                        view the active and experimental learning requirements of the child:</p>
+
+                    <table class="admission-table">
+                        <thead>
+                            <tr>
+                                <th>PROGRAMME</th>
+                                <th>AGE</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Toddler's Club</td>
+                                <td>1.2 – 1.8 years</td>
+                            </tr>
+                            <tr>
+                                <td>Play Group</td>
+                                <td>1.8 – 3 years</td>
+                            </tr>
+                            <tr>
+                                <td>Nursery</td>
+                                <td>3 – 4 years</td>
+                            </tr>
+                            <tr>
+                                <td>Jr KG</td>
+                                <td>4 – 5 years</td>
+                            </tr>
+                            <tr>
+                                <td>Sr KG</td>
+                                <td>5 – 6 years</td>
+                            </tr>
+                            <tr>
+                                <td>Day care</td>
+                                <td>1.5 – 12 years</td>
+                            </tr>
+                            <tr>
+                                <td>Activity centre</td>
+                                <td>2 – 12 years</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p class="content-text">Admission in SUNNY Skies play School is based on a rolling enrollment
+                        system. Parents may enroll children at any time. Acceptance is based on space availability. A
+                        registration fee is required and can be applied to the wait list if space is not currently
+                        available.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -1295,11 +1942,12 @@
     <!-- Video Section -->
     <section class="section">
         <div class="video-section fade-in">
-            <div class="video-placeholder">
-                <div class="video-placeholder-icon">📹</div>
+            <div class="video-parallax">
+                <!-- <video src="media/videos/main.mp4" type="video/mp4" playsinline muted loop></video> -->
+                <video id="introVideo" src="media/videos/main.mp4" type="video/mp4" playsinline muted loop></video>
+
                 <div class="video-placeholder-text">
-                    <strong>School Life Video Placeholder</strong><br>
-                    A day in the life at Sunny Skies - Children learning, playing, and growing together
+
                 </div>
             </div>
         </div>
@@ -1341,19 +1989,19 @@
         </div>
 
         <div class="cards-grid">
-            <div class="card">
+            <div class="card program-card" data-link="nursery.html">
                 <div class="card-icon">🐣</div>
                 <h3 class="card-title">Nursery (1.5-2.5 years)</h3>
                 <p class="card-text">Gentle introduction to group learning with sensory exploration, basic social
                     skills, and nurturing care in a home-like environment.</p>
             </div>
-            <div class="card">
+            <div class="card program-card" data-link="kg.html">
                 <div class="card-icon">🌸</div>
                 <h3 class="card-title">Junior KG (2.5-3.5 years)</h3>
                 <p class="card-text">Foundation building through structured play, early language development, motor
                     skills enhancement, and creative expression activities.</p>
             </div>
-            <div class="card">
+            <div class="card program-card" data-link="kg.html">
                 <div class="card-icon">🚀</div>
                 <h3 class="card-title">Senior KG (3.5-4.5 years)</h3>
                 <p class="card-text">School readiness preparation with phonics, numeracy, writing skills, critical
@@ -1369,24 +2017,77 @@
             <p class="section-subtitle">Every day brings new discoveries, friendships, and learning opportunities</p>
         </div>
 
-        <div class="gallery-grid">
-            <div class="gallery-item">🎨</div>
-            <div class="gallery-item">📚</div>
-            <div class="gallery-item">🎵</div>
-            <div class="gallery-item">🏃</div>
-            <div class="gallery-item">🧩</div>
-            <div class="gallery-item">🌱</div>
-            <div class="gallery-item">🍎</div>
-            <div class="gallery-item">🎭</div>
-            <div class="gallery-item">🔬</div>
-        </div>
+        <section class="section">
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="media/images/extra/6.jpeg" alt="Art Activities" /></div>
+                <div class="gallery-item"><img src="media/images/extra/4.jpeg" alt="Reading Time" /></div>
+                <div class="gallery-item"><img src="media/images/extra/16.jpg" alt="Music & Dance" /></div>
+                <div class="gallery-item"><img src="media/images/kids.jpg" alt="Outdoor Play" /></div>
+                <div class="gallery-item"><img src="media/images/extra/18.jpg" alt="Puzzles & Games" /></div>
+                <div class="gallery-item"><img src="media/images/extra/9.jpeg" alt="Nature Walks" /></div>
+                <div class="gallery-item"><img src="media/images/extra/10.jpeg" alt="Healthy Snacks" /></div>
+                <div class="gallery-item"><img src="media/images/extra/2.jpeg" alt="Healthy Snacks" /></div>
+                <div class="gallery-item"><img src="media/images/extra/17.jpg" alt="Healthy Snacks" /></div>
+                <div class="gallery-item"><img src="media/images/extra/14.jpeg" alt="Healthy Snacks" /></div>
+                <div class="gallery-item"><img src="media/images/extra/3.jpeg" alt="Drama & Expression" /></div>
+            </div>
+        </section>
+
+
+
 
         <div style="text-align: center; margin-top: 3rem;">
-            <p class="gallery-placeholder" style="font-style: italic;">
-                📸 <strong>Real photos and videos of our activities will be displayed here</strong><br>
-                <span style="font-size: 0.9rem; opacity: 0.8;">Request: High-quality images of children engaged in
-                    learning, playing, and creative activities</span>
-            </p>
+            <div class="photo-gallery-grid">
+                <img src="media/images/1.jpg" alt="Learning Activity">
+                <img src="../media/images/7.jpg" alt="Music and Dance">
+                <img src="/media/images/clown.jpg" alt="Playing Together">
+                <!-- <img src="../media/images/3.jpg" alt="Creative Art Time"> -->
+                <img src="../media/images/4.jpg" alt="Outdoor Fun">
+                <img src="../media/images/5.jpg" alt="Group Games">
+                <img src="../media/images/6.jpg" alt="Music and Dance">
+                <img src="/media/images/over.jpg" alt="Playing Together">
+                <img src="../media/images/8.jpg" alt="Music and Dance">
+                <img src="../media/images/9.jpg" alt="Music and Dance">
+            </div>
+        </div>
+    </section>
+
+    <!-- Daycare Section -->
+    <section id="daycare" class="section fade-in daycare-section">
+        <div class="section-header">
+            <h2 class="section-title">Daycare Services</h2>
+            <p class="section-subtitle" style="font-size: larger;">Providing a safe, nurturing environment for your child throughout the day</p>
+        </div>
+
+        <div class="contact-section">
+            <div style="text-align: left; max-width: 800px; margin: 0 auto; font-size: larger;">
+                <p class="content-text">• Childcare for infants to preschoolers</p>
+                <p class="content-text">• Engaging activities and play-based learning</p>
+                <p class="content-text">• Nutritious meals and snacks</p>
+                <p class="content-text">• Secure and hygienic facilities</p>
+                <p class="content-text" style="text-align: center; margin-top: 2rem;">
+                    <span class="content-highlight">Give your child the best start! <span
+                            style="font-size: 1.2em;">🌈</span></span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Night care Section -->
+    <section id="nightcare" class="section fade-in nightcare-section">
+        <div class="section-header">
+            <h2 class="section-title">Night care Services</h2>
+            <p class="section-subtitle">Safe, Reliable, and Caring overnight care for your peace of mind</p>
+        </div>
+
+        <div class="contact-section">
+            <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+                <h3 class="content-highlight" style="margin-bottom: 1.5rem;">
+                    Nightcare Services: Safe, Reliable, and Caring! <span style="font-size: 1.2em;">🌃</span>
+                </h3>
+                <p class="content-text">Trust our experienced staff to care for your child at night. Homework help,
+                    bedtime routines, and a nurturing environment.</p>
+            </div>
         </div>
     </section>
 
@@ -1403,24 +2104,24 @@
                     <div class="contact-icon">📍</div>
                     <div class="contact-title">Location</div>
                     <div class="contact-text">
-                        [PLACEHOLDER: School Address]<br>
-                        [City, State, PIN Code]
+                        SUNNY Skies Playway and Daycare <br>
+                        7/118, Sec 2 <br> Rajendra Nagar, <br> near Karan Gate Chowki,<br> Sahibabad Ghaziabad
                     </div>
                 </div>
                 <div class="contact-item">
                     <div class="contact-icon">📞</div>
                     <div class="contact-title">Phone</div>
                     <div class="contact-text">
-                        [PLACEHOLDER: Primary Number]<br>
-                        [Alternative Number]
+                        +91 7289026979 <br>
+                        +91 7503232218
                     </div>
                 </div>
                 <div class="contact-item">
                     <div class="contact-icon">📧</div>
                     <div class="contact-title">Email</div>
                     <div class="contact-text">
-                        [PLACEHOLDER: Email Address]<br>
-                        [Admissions Email]
+                        sunnyskies1674@gmail.com<br>
+                       
                     </div>
                 </div>
                 <div class="contact-item">
@@ -1434,13 +2135,15 @@
             </div>
 
             <div style="margin-top: 3rem;">
-                <a href="#" class="btn-primary" style="margin-right: 1rem;">
+                <a href="https://wa.me/917678488905?text=Hi%20Sunny%20Skies,%20I'd%20like%20to%20schedule%20a%20visit."
+                    target="_blank" class="btn-primary" style="margin-right: 1rem;">
                     <span>Schedule Visit</span>
                     <span>📅</span>
                 </a>
-                <a href="#" class="btn-primary btn-secondary-brochure">
-                    <span>Download Brochure</span>
-                    <span>📋</span>
+                <!-- <a href="#" class="btn-primary btn-secondary-brochure"> -->
+                    <!-- <span>Download Brochure</span> -->
+                     <!-- <a href="https://forms.gle/BBnaciFZCXwcTWtg8" target="_blank" class="nav-cta">Apply Now</a> -->
+                    <!-- <span>📋</span> -->
                 </a>
             </div>
         </div>
@@ -1451,22 +2154,18 @@
         <div class="footer-content">
             <div class="footer-logo">
                 <div class="logo" style="justify-content: center;">
-                    <!-- <div class="logo-icon">☀️</div> -->
-                      <img src="./sunny-skies-logo.png" alt="Sunny Skies" style="height: 100px;">
-                    <!-- <div>
-                        <div class="logo-text">Sunny Skies Playway School</div>
-                        <div class="logo-subtext">Where Dreams Take Flight</div>
-                    </div> -->
+                    <img src="./sunny-skies-logo.png" alt="Sunny Skies" style="height: 100px;">
                 </div>
             </div>
 
             <div class="footer-links">
                 <a href="#about" class="footer-link">About Us</a>
                 <a href="#programs" class="footer-link">Programs</a>
-                <a href="#activities" class="footer-link">Activities</a>
                 <a href="#gallery" class="footer-link">Gallery</a>
+                <a href="#daycare" class="footer-link">Daycare</a>
+                <a href="#nightcare" class="footer-link">Night care</a>
                 <a href="#contact" class="footer-link">Contact</a>
-                <a href="#" class="footer-link">Admissions</a>
+                <a href="https://forms.gle/BBnaciFZCXwcTWtg8" target="_blank" class="footer-link">Admissions</a>
                 <a href="#" class="footer-link">Privacy Policy</a>
             </div>
 
@@ -1514,6 +2213,34 @@
             });
         });
 
+        // Improved Dropdown Hover Behavior with Delay
+        let dropdownTimer;
+
+        document.querySelectorAll('.dropdown').forEach(dropdown => {
+            const content = dropdown.querySelector('.dropdown-content');
+
+            dropdown.addEventListener('mouseenter', () => {
+                clearTimeout(dropdownTimer);
+                content.classList.add('show');
+            });
+
+            dropdown.addEventListener('mouseleave', () => {
+                dropdownTimer = setTimeout(() => {
+                    content.classList.remove('show');
+                }, 250); // 250ms delay before hiding
+            });
+        });
+
+        // Program Cards Click Handler
+        document.querySelectorAll('.program-card').forEach(card => {
+            card.addEventListener('click', function () {
+                const link = this.getAttribute('data-link');
+                if (link) {
+                    window.location.href = link;
+                }
+            });
+        });
+
         // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -1546,58 +2273,72 @@
             observer.observe(el);
         });
 
-        // Navbar scroll effect and smooth background transition
+        // Enhanced scroll-based theme transitions
         const clouds = document.querySelector('.clouds');
         const navbar = document.querySelector('.navbar');
-        let isTransitioning = false;
+        const nightcareSection = document.querySelector('#nightcare');
+        let isLightMode = false;
+        let isNightMode = false;
 
         window.addEventListener('scroll', () => {
             const scrolled = window.scrollY;
             const windowHeight = window.innerHeight;
             const transitionStart = windowHeight * 0.3;
 
-            // Only apply manual navbar styles when not in light background mode
-            if (!isTransitioning) {
-                if (scrolled > 100) {
-                    navbar.style.background = 'rgba(15, 15, 35, 0.98)';
-                    // navbar.style.borderBottom = '1px solid rgba(255, 255, 255, 0.2)';
-                } else {
-                    navbar.style.background = 'rgba(15, 15, 35, 0.95)';
-                    // navbar.style.borderBottom = '1px solid rgba(255, 255, 255, 0.1)';
-                }
-            }
+            // Get nightcare section position
+            const nightcareRect = nightcareSection.getBoundingClientRect();
+            const nightcareInView = nightcareRect.top <= windowHeight * 0.5;
 
-            // Background and cloud transition
-            if (scrolled >= transitionStart && !isTransitioning) {
-                isTransitioning = true;
+            // Night care section transition (Day to Night)
+            if (nightcareInView && !isNightMode) {
+                isNightMode = true;
+                isLightMode = false;
+                document.body.classList.remove('scrolled-bg');
+                document.body.classList.add('night-theme');
+                navbar.classList.remove('scrolled-navbar');
+                clouds.classList.remove('visible');
+            }
+            // Regular day transition
+            else if (scrolled >= transitionStart && !isLightMode && !nightcareInView) {
+                isLightMode = true;
+                isNightMode = false;
                 document.body.classList.add('scrolled-bg');
+                document.body.classList.remove('night-theme');
                 navbar.classList.add('scrolled-navbar');
 
-                // Clear manual styles to let CSS classes take over
-                navbar.style.background = '';
-                navbar.style.borderBottom = '';
-
-                // Delay cloud appearance
                 setTimeout(() => {
                     clouds.classList.add('visible');
                 }, 800);
-
-            } else if (scrolled < transitionStart && isTransitioning) {
-                isTransitioning = false;
+            }
+            // Back to dark theme at top
+            else if (scrolled < transitionStart && (isLightMode || isNightMode)) {
+                isLightMode = false;
+                isNightMode = false;
                 document.body.classList.remove('scrolled-bg');
+                document.body.classList.remove('night-theme');
                 navbar.classList.remove('scrolled-navbar');
                 clouds.classList.remove('visible');
+            }
 
-                // Restore manual navbar control
+            // Regular navbar opacity
+            if (!isLightMode && !isNightMode) {
                 if (scrolled > 100) {
                     navbar.style.background = 'rgba(15, 15, 35, 0.98)';
-                    // navbar.style.borderBottom = '1px solid rgba(255, 255, 255, 0.2)';
                 } else {
                     navbar.style.background = 'rgba(15, 15, 35, 0.95)';
-                    // navbar.style.borderBottom = '1px solid rgba(255, 255, 255, 0.1)';
                 }
             }
         });
+        window.addEventListener("DOMContentLoaded", function () {
+            const video = document.getElementById("introVideo");
+            setTimeout(() => {
+                video.play().catch(err => {
+                    // fallback: video couldn't autoplay (e.g. user interaction required)
+                    console.warn("Video failed to autoplay:", err);
+                });
+            }, 5000); // 5000 ms = 5 seconds
+        });
+
 
         // Gallery item interactions
         document.querySelectorAll('.gallery-item').forEach(item => {
@@ -1621,6 +2362,26 @@
                 }
             }, 3000 + (index * 1000));
         });
+
+        // Video parallax effect
+        (function () {
+            const wrapper = document.querySelector('.video-parallax');
+            const vid = wrapper ? wrapper.querySelector('video') : null;
+
+            if (wrapper && vid) {
+                function handleScroll() {
+                    const rect = wrapper.getBoundingClientRect();
+                    const vh = window.innerHeight;
+                    const offset = rect.top - vh;
+                    const ratio = offset / (vh + rect.height);
+
+                    vid.style.transform = `translate(-50%, calc(-50% + ${ratio * 100}%))`;
+                }
+
+                handleScroll();
+                window.addEventListener('scroll', handleScroll, { passive: true });
+            }
+        })();
     </script>
 </body>
 

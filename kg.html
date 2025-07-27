@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior: smooth;">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <title>Kindergarten | Sunny Skies Playway</title>
+    <meta name="title" content="Kindergarten Program | Sunny Skies Playway School">
+    <meta name="description"
+        content="Explore our interactive kindergarten program designed to spark curiosity and build confidence through structured learning and joyful play.">
+
+    <style>
+        /* CSS Variables - Modern Elegant Palette */
+        :root {
+            --primary-dark: #0F0F23;
+            --secondary-dark: #1A1B2E;
+            --accent-coral: #FF6B6B;
+            --accent-mint: #4ECDC4;
+            --accent-peach: #FFE66D;
+            --accent-lavender: #A8E6CF;
+            --accent-rose: #FF8E94;
+            --white: #FFFFFF;
+            --light-gray: #F8F9FA;
+            --text-primary: #FFFFFF;
+            --text-secondary: rgba(255, 255, 255, 0.8);
+            --text-muted: rgba(255, 255, 255, 0.6);
+            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --gradient-accent: linear-gradient(135deg, #1a94ff 0%, #035a8da7 100%);
+            --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --font-display: 'Poppins', 'Inter', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background: linear-gradient(135deg, #87CEEB 0%, #B0E0E6 30%, #E0F6FF 70%, #87CEEB 100%);
+            color: #2c3e50;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Hero Banner */
+        .hero-banner {
+            height: 60vh;
+            background: url('/media/images/kids.jpg') center/cover;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, #4A90E2 0%, #2E5BBA 100%);
+            color: white;
+            text-decoration: none;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            font-weight: 600;
+            margin-bottom: 3rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(74, 144, 226, 0.4);
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding: 3rem 0;
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('assets/kg/header-bg.jpg') center/cover;
+            opacity: 0.15;
+            z-index: -1;
+        }
+
+        .page-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-subtitle {
+            font-size: 1.2rem;
+            color: #34495e;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .content-section {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 25px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .content-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('assets/kg/section-bg.jpg') center/cover;
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        .activity-card {
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .activity-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .activity-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('assets/kg/activity-bg.jpg') center/cover;
+            opacity: 0.08;
+            z-index: -1;
+        }
+
+        .activity-title {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .activity-emoji {
+            font-size: 2rem;
+        }
+
+        .activity-description {
+            color: #34495e;
+            line-height: 1.7;
+            font-size: 1.1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .intro-text {
+            font-size: 1.1rem;
+            color: #34495e;
+            line-height: 1.8;
+            margin-bottom: 3rem;
+            text-align: center;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .closing-text {
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            margin-top: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+        }
+
+        .closing-text p {
+            font-size: 1.1rem;
+            color: #2c3e50;
+            line-height: 1.8;
+            font-weight: 500;
+        }
+
+        .highlight {
+            color: #2E5BBA;
+            font-weight: 600;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .content-section {
+                padding: 2rem;
+            }
+
+            .activity-card {
+                padding: 1.5rem;
+            }
+
+            .page-header {
+                padding: 2rem 1rem;
+            }
+
+            .hero-banner {
+                height: 50vh;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Hero Banner -->
+    <section class="hero-banner">
+        <div class="hero-content">
+            <h1 class="hero-title">Kindergarten Program</h1>
+            <p class="hero-subtitle">Building bright futures through interactive learning</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <a href="index.html" class="back-button">
+            <span>←</span>
+            <span>Back to Home</span>
+        </a>
+
+        <div class="page-header">
+            <h1 class="page-title">Kindergarten Program</h1>
+            <p class="page-subtitle">Interactive learning experiences that spark curiosity and build confidence</p>
+        </div>
+
+        <div class="content-section">
+            <h2 class="activity-title">
+                <span class="activity-emoji">🌟</span>
+                Interactive Kindergarten (K.G.) Class Activities at Sunny Skies Playway
+            </h2>
+            
+            <p class="intro-text">
+                Our Kindergarten program at Sunny Skies Playway is designed to spark curiosity, boost confidence, and nurture every child's natural love for learning. With a perfect blend of structured learning and joyful play, our K.G. class lays a strong foundation for academic and personal growth.
+            </p>
+
+            <div class="activity-card">
+                <h3 class="activity-title">
+                    <span class="activity-emoji">✏</span>
+                    Early Writing & Literacy Skills
+                </h3>
+                <p class="activity-description">
+                    We help children strengthen their writing and reading abilities through phonics practice, tracing, sentence formation, picture reading, and story narration. Each child is gently guided to build vocabulary and communication skills.
+                </p>
+            </div>
+
+            <div class="activity-card">
+                <h3 class="activity-title">
+                    <span class="activity-emoji">➕</span>
+                    Concept-Based Numeracy
+                </h3>
+                <p class="activity-description">
+                    Children explore numbers in fun ways through number writing, counting activities, basic addition & subtraction, shapes, patterns, and measurement games. These help build strong problem-solving and reasoning abilities.
+                </p>
+            </div>
+
+            <div class="activity-card">
+                <h3 class="activity-title">
+                    <span class="activity-emoji">🎨</span>
+                    Creative Art & Expression
+                </h3>
+                <p class="activity-description">
+                    Our budding artists enjoy drawing, painting, paper folding, craft-making, and festival-themed artwork that develop imagination and enhance fine motor coordination.
+                </p>
+            </div>
+
+            <div class="activity-card">
+                <h3 class="activity-title">
+                    <span class="activity-emoji">🌈</span>
+                    Theme-Based Projects
+                </h3>
+                <p class="activity-description">
+                    Every month, we introduce interesting themes like My Family, Seasons, Transport, Community Helpers, and Healthy Habits, with related activities, show & tell, and discussions that broaden knowledge and spark curiosity.
+                </p>
+            </div>
+
+            <div class="activity-card">
+                <h3 class="activity-title">
+                    <span class="activity-emoji">🎶</span>
+                    Music, Dance & Drama
+                </h3>
+                <p class="activity-description">
+                    Children participate in rhymes, action songs, classical and freestyle dance, and role-play to build stage confidence, self-expression, and rhythm.
+                </p>
+            </div>
+
+            <div class="activity-card">
+                <h3 class="activity-title">
+                    <span class="activity-emoji">🧠</span>
+                    Cognitive & Logical Games
+                </h3>
+                <p class="activity-description">
+                    Through board games, puzzles, sequencing cards, sorting, and classification activities, we encourage thinking skills, memory development, and focus.
+                </p>
+            </div>
+
+            <div class="activity-card">
+                <h3 class="activity-title">
+                    <span class="activity-emoji">🌿</span>
+                    Environmental Learning & Outdoor Play
+                </h3>
+                <p class="activity-description">
+                    Our little explorers enjoy nature walks, gardening, playground games, and physical exercises that promote fitness, observation, and respect for nature.
+                </p>
+            </div>
+
+            <div class="activity-card">
+                <h3 class="activity-title">
+                    <span class="activity-emoji">🧘‍♂</span>
+                    Yoga & Mindfulness
+                </h3>
+                <p class="activity-description">
+                    Daily sessions of kids' yoga, meditation, and breathing exercises help improve concentration, balance emotions, and build inner calmness.
+                </p>
+            </div>
+
+            <div class="activity-card">
+                <h3 class="activity-title">
+                    <span class="activity-emoji">🤝</span>
+                    Life Skills & Moral Education
+                </h3>
+                <p class="activity-description">
+                    We focus on developing responsible and kind behavior through group tasks, manners practice, self-care routines, and value-based stories that instill empathy and independence.
+                </p>
+            </div>
+
+            <div class="closing-text">
+                <p>
+                    <span class="activity-emoji">💫</span> At Sunny Skies, our K.G. activities aim to shape <span class="highlight">confident, kind, and curious learners</span> who are ready to step into formal schooling with joy and self-assurance. We believe in creating a classroom full of <span class="highlight">laughter, learning, and love!</span>
+                </p>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem;">
+            <a href="https://forms.gle/BBnaciFZCXwcTWtg8" target="_blank" class="back-button">
+                <span>📝</span>
+                <span>Apply for KG Program</span>
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>
