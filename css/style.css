@@ -1852,7 +1852,7 @@
   height: 500px;                    /* ya 400px kar sakte ho agar bada chahiye */
   background:
     linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
-    url('http://localhost/sunnyskies/media/images/children-playing-with-educational-toys-classroom_1297101-24928.avif');  /* yahan sahi naam daalo (kids.jpg ya 1.jpg) */
+    url('../media/images/children-playing-with-educational-toys-classroom_1297101-24928.avif');  /* yahan sahi naam daalo (kids.jpg ya 1.jpg) */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1862,7 +1862,7 @@
 }
 
 .banner-overlay{
-  text-align:center;
+  text-align: center;
   color:#fff;
 }
 
@@ -3177,3 +3177,4 @@ body {
 }
 
  
+
