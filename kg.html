@@ -1,435 +1,752 @@
 <!DOCTYPE html>
 <html lang="en" style="scroll-behavior: smooth;">
-
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <title>Kindergarten | Sunny Skies Playway</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Kindergarten (KG) | Sunny Skies Playway</title>
     <meta name="title" content="Kindergarten Program | Sunny Skies Playway School">
-    <meta name="description"
-        content="Explore our interactive kindergarten program designed to spark curiosity and build confidence through structured learning and joyful play.">
-
-    <style>
-        /* CSS Variables - Modern Elegant Palette */
-        :root {
-            --primary-dark: #0F0F23;
-            --secondary-dark: #1A1B2E;
-            --accent-coral: #FF6B6B;
-            --accent-mint: #4ECDC4;
-            --accent-peach: #FFE66D;
-            --accent-lavender: #A8E6CF;
-            --accent-rose: #FF8E94;
-            --white: #FFFFFF;
-            --light-gray: #F8F9FA;
-            --text-primary: #FFFFFF;
-            --text-secondary: rgba(255, 255, 255, 0.8);
-            --text-muted: rgba(255, 255, 255, 0.6);
-            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            --gradient-accent: linear-gradient(135deg, #1a94ff 0%, #035a8da7 100%);
-            --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            --font-display: 'Poppins', 'Inter', sans-serif;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: var(--font-primary);
-            background: linear-gradient(135deg, #87CEEB 0%, #B0E0E6 30%, #E0F6FF 70%, #87CEEB 100%);
-            color: #2c3e50;
-            line-height: 1.6;
-            min-height: 100vh;
-        }
-
-        /* Hero Banner */
-        .hero-banner {
-            height: 60vh;
-            background: url('/media/images/kids.jpg') center/cover;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-
-        .hero-banner::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.4);
-            z-index: 1;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            color: white;
-            max-width: 800px;
-            padding: 2rem;
-        }
-
-        .hero-title {
-            font-family: var(--font-display);
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 700;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
-
-        .hero-subtitle {
-            font-size: 1.2rem;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        .back-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: linear-gradient(135deg, #4A90E2 0%, #2E5BBA 100%);
-            color: white;
-            text-decoration: none;
-            padding: 1rem 2rem;
-            border-radius: 25px;
-            font-weight: 600;
-            margin-bottom: 3rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
-        }
-
-        .back-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(74, 144, 226, 0.4);
-        }
-
-        .page-header {
-            text-align: center;
-            margin-bottom: 4rem;
-            padding: 3rem 0;
-            background: rgba(255, 255, 255, 0.3);
-            backdrop-filter: blur(20px);
-            border-radius: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .page-header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('assets/kg/header-bg.jpg') center/cover;
-            opacity: 0.15;
-            z-index: -1;
-        }
-
-        .page-title {
-            font-family: var(--font-display);
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 700;
-            margin-bottom: 1rem;
-            background: var(--gradient-accent);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .page-subtitle {
-            font-size: 1.2rem;
-            color: #34495e;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .content-section {
-            background: rgba(255, 255, 255, 0.4);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 25px;
-            padding: 3rem;
-            margin-bottom: 3rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .content-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('assets/kg/section-bg.jpg') center/cover;
-            opacity: 0.1;
-            z-index: -1;
-        }
-
-        .activity-card {
-            background: rgba(255, 255, 255, 0.6);
-            border-radius: 20px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .activity-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        .activity-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('assets/kg/activity-bg.jpg') center/cover;
-            opacity: 0.08;
-            z-index: -1;
-        }
-
-        .activity-title {
-            font-family: var(--font-display);
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .activity-emoji {
-            font-size: 2rem;
-        }
-
-        .activity-description {
-            color: #34495e;
-            line-height: 1.7;
-            font-size: 1.1rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .intro-text {
-            font-size: 1.1rem;
-            color: #34495e;
-            line-height: 1.8;
-            margin-bottom: 3rem;
-            text-align: center;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .closing-text {
-            background: rgba(255, 255, 255, 0.5);
-            border-radius: 20px;
-            padding: 2.5rem;
-            text-align: center;
-            margin-top: 3rem;
-            border: 1px solid rgba(255, 255, 255, 0.6);
-        }
-
-        .closing-text p {
-            font-size: 1.1rem;
-            color: #2c3e50;
-            line-height: 1.8;
-            font-weight: 500;
-        }
-
-        .highlight {
-            color: #2E5BBA;
-            font-weight: 600;
-        }
-
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .container {
-                padding: 1rem;
-            }
-
-            .content-section {
-                padding: 2rem;
-            }
-
-            .activity-card {
-                padding: 1.5rem;
-            }
-
-            .page-header {
-                padding: 2rem 1rem;
-            }
-
-            .hero-banner {
-                height: 50vh;
-            }
-        }
-    </style>
+    <meta name="description" content="Our engaging KG program prepares children for formal schooling with structured play, foundational academics, and joyful skill-building.">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
-
 <body>
+    <!-- Custom Cursor & Floating Elements (same as nursery) -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+    <div class="floating-doodles">
+        <div class="doodle">✨</div>
+        <div class="doodle">🌟</div>
+        <div class="doodle">🎨</div>
+        <div class="doodle">📚</div>
+        <div class="doodle">🌈</div>
+        <div class="doodle">🦋</div>
+    </div>
+    <div class="clouds">
+        <div class="cloud cloud1"></div>
+        <div class="cloud cloud2"></div>
+        <div class="cloud cloud3"></div>
+        <div class="cloud cloud4"></div>
+    </div>
+
+    <!-- Navigation (same) -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="./sunny-skies-logo.png" alt="Sunny Skies" style="height: 60px;">
+            </a>
+            <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about-us.html" class="nav-link">About Us</a></li>
+                <li class="dropdown">
+                    <a href="#programs" class="nav-link">Programs</a>
+                    <div class="dropdown-content">
+                        <a href="nursery.html">Nursery</a>
+                        <a href="kg.html">Kinder Garden (KG)</a>
+                        <a href="daycare.html" class="nav-link">Daycare</a>
+                        <a href="nightcare.html" class="nav-link">Night care</a>
+                    </div>
+                </li>
+                <li><a href="Gallery.html" class="nav-link">Gallery</a></li>
+                <li><a href="Contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <a href="https://forms.gle/BBnaciFZCXwcTWtg8" target="_blank" class="nav-cta">Apply Now</a>
+        </div>
+    </nav>
+
     <!-- Hero Banner -->
-    <section class="hero-banner">
+    <section class="hero-kg-banner">
         <div class="hero-content">
             <h1 class="hero-title">Kindergarten Program</h1>
-            <p class="hero-subtitle">Building bright futures through interactive learning</p>
+            <p class="hero-subtitle">Building strong foundations with joy, curiosity & readiness for Grade 1</p>
         </div>
     </section>
 
-    <div class="container">
-        <a href="index.html" class="back-button">
-            <span>←</span>
-            <span>Back to Home</span>
-        </a>
+    <!-- Intro Section -->
+    <section class="kg-intro-section">
+        <div class="kg-container">
+            <div class="kg-content">
+    <h2>Best Kindergarten School in Shalimar Garden – Sunny Skies Playway</h2>
+    <p>
+        At <strong>Sunny Skies Playway</strong>, our <strong>Kindergarten (KG) program in Shalimar Garden</strong> bridges playful early years to formal schooling. We offer a balanced, joyful environment where children (typically 4–6 years) grow academically, socially, and emotionally.
+    </p>
+    <p>
+        As one of the <strong>top kindergarten schools in Shalimar Garden</strong>, we emphasize foundational literacy, numeracy, critical thinking, independence, and school readiness through theme-based learning, group activities, and personalized guidance.
+    </p>
+    <div class="kg-highlight">
+        <strong>Objective:</strong> To prepare confident, curious learners with strong academic basics, social values, and enthusiasm for school — making Sunny Skies Playway a preferred choice among the <strong>best KG schools near Shalimar Garden</strong>.
+    </div>
+    <a href="https://forms.gle/BBnaciFZCXwcTWtg8" class="kg-btn-primary">
+        ENQUIRY NOW →
+    </a>
+</div>
+            <div class="kg-image-wrap">
+                <img src="media/images/WhatsAppImage2026-02-27at3.14.13PM5-ezgif.com-resize.jpg" alt="Best Kindergarten School in Rajendra Nagar Sahibabad - Sunny Skies Playway">
+            </div>
+        </div>
+    </section>
+    
+    
+    <section class="kg-section">
+  <div class="kg-container">
 
-        <div class="page-header">
-            <h1 class="page-title">Kindergarten Program</h1>
-            <p class="page-subtitle">Interactive learning experiences that spark curiosity and build confidence</p>
+    <!-- Image Left -->
+    <div class="kg-image">
+      <img src="media/images/WhatsAppImage2026-02-27at3.14.13PM3-ezgif.com-resize.jpg" alt="KG Program">
+    </div>
+
+    <!-- Content Right -->
+    <div class="kg-content">
+    <h2>Best Kindergarten Program</h2>
+    <p>
+        Our Kindergarten (KG) program serves as the perfect bridge between early learning and formal education. We provide a joyful, structured, and child-centered environment where young learners grow with confidence.
+    </p>
+    <p>
+        Designed for children aged 4–6 years, the program blends interactive academics with creativity and life skills — focusing on phonics, reading readiness, basic mathematics, science exploration, communication skills, teamwork, and emotional development.
+    </p>
+    <p>
+        <strong>Objective:</strong> To build strong foundational skills, nurture curiosity, and prepare children for a smooth and confident transition to Grade 1.
+    </p>
+    <a href="Contact.html" class="kg-btn">Contact Us →</a>
+</div>
+
+  </div>
+</section>
+
+ 
+
+   <section class="why-choose">
+    <div class="why-container">
+        <h2 class="why-title">Why Choose Sunny Skies Playway?</h2>
+        <p class="why-subtitle">
+            Sunny Skies Playway is one of the <strong>best play schools in Rajendra Nagar, Sahibabad</strong>, offering a nurturing environment, modern teaching methods, complete child care, and joyful learning experiences that build a strong foundation for your child.
+        </p>
+
+        <div class="why-grid">
+
+            <!-- Original Why Choose Cards (with Font Awesome icons) -->
+            <div class="why-card">
+                <i class="fas fa-chalkboard-teacher why-icon"></i>
+                <h3>Qualified & Caring Teachers</h3>
+                <p>Experienced educators who provide individual attention and support holistic child development with love and patience.</p>
+            </div>
+
+            <div class="why-card">
+                <i class="fas fa-paint-brush why-icon"></i>
+                <h3>Play-Based Learning</h3>
+                <p>Fun interactive activities, games, music, art, and hands-on exploration that make learning joyful and effective.</p>
+            </div>
+
+            <div class="why-card">
+                <i class="fas fa-shield-alt why-icon"></i>
+                <h3>Safe & Secure Campus</h3>
+                <p>24/7 CCTV surveillance, child-friendly infrastructure, secure entry, and hygienic classrooms for complete peace of mind.</p>
+            </div>
+
+            <div class="why-card">
+                <i class="fas fa-apple-alt why-icon"></i>
+                <h3>Healthy & Nurturing Environment</h3>
+                <p>Clean facilities, balanced routines, nutritious habits, and emotional support for physical and mental well-being.</p>
+            </div>
+
+            <!-- Nursery Activities as Additional "Why Choose" Reasons -->
+            <div class="why-card">
+                <i class="fas fa-palette why-icon"></i>
+                <h3>Creative Corner</h3>
+                <p>Coloring, painting, clay modeling, paper crafts to boost fine motor skills, imagination, and self-expression.</p>
+            </div>
+
+            <div class="why-card">
+                <i class="fas fa-book-open why-icon"></i>
+                <h3>Language & Literacy Time</h3>
+                <p>Phonics, storytelling, rhymes, picture reading to build strong communication and early reading foundations.</p>
+            </div>
+
+            <div class="why-card">
+                <i class="fas fa-calculator why-icon"></i>
+                <h3>Number Fun</h3>
+                <p>Counting games, shape sorting, puzzles to introduce basic math in an enjoyable, pressure-free way.</p>
+            </div>
+
+            <div class="why-card">
+                <i class="fas fa-music why-icon"></i>
+                <h3>Rhymes & Rhythm</h3>
+                <p>Singing, action songs, instruments to develop listening, coordination, rhythm, and musical joy.</p>
+            </div>
+
+            <div class="why-card">
+                <i class="fas fa-puzzle-piece why-icon"></i>
+                <h3>Cognitive Development</h3>
+                <p>Puzzles, memory games, sorting, building blocks to sharpen critical thinking and problem-solving skills.</p>
+            </div>
+
+            <div class="why-card">
+                <i class="fas fa-child why-icon"></i>
+                <h3>Yoga & Movement</h3>
+                <p>Daily yoga, dance, free play, exercises for strength, flexibility, body awareness, and energy release.</p>
+            </div>
+
+            <div class="why-card">
+                <i class="fas fa-leaf why-icon"></i>
+                <h3>Nature & Sensory Play</h3>
+                <p>Garden walks, sand/water play, sensory bins to spark curiosity and connect children with nature.</p>
+            </div>
+
+            <div class="why-card">
+                <i class="fas fa-users why-icon"></i>
+                <h3>Life Skills & Social Learning</h3>
+                <p>Group games, sharing, role play to teach cooperation, empathy, responsibility, and friendship.</p>
+            </div>
+
+<!--
+            <div class="why-card">
+                <i class="fas fa-calendar-alt why-icon"></i>
+                <h3>Theme-Based Learning</h3>
+                <p>Monthly exciting themes (Colors, Animals, Festivals, Seasons) for meaningful, fun, and connected learning.</p>
+            </div>
+-->
         </div>
 
-        <div class="content-section">
-            <h2 class="activity-title">
-                <span class="activity-emoji">🌟</span>
-                Interactive Kindergarten (K.G.) Class Activities at Sunny Skies Playway
-            </h2>
-            
-            <p class="intro-text">
-                Our Kindergarten program at Sunny Skies Playway is designed to spark curiosity, boost confidence, and nurture every child's natural love for learning. With a perfect blend of structured learning and joyful play, our K.G. class lays a strong foundation for academic and personal growth.
+        <!-- Closing Text -->
+        <div style="margin-top: 50px; padding: 30px; background: rgba(26,148,255,0.08); border-radius: 20px; max-width: 900px; margin-left: auto; margin-right: auto;">
+            <p style="font-size: 1.2rem; color: #042b4f; line-height: 1.8;">
+                <strong>At Sunny Skies Playway</strong>, every day is designed to build confidence, creativity, curiosity, and a lifelong love for learning. Join us for joyful experiences that lay the foundation for bright futures!
             </p>
-
-            <div class="activity-card">
-                <h3 class="activity-title">
-                    <span class="activity-emoji">✏</span>
-                    Early Writing & Literacy Skills
-                </h3>
-                <p class="activity-description">
-                    We help children strengthen their writing and reading abilities through phonics practice, tracing, sentence formation, picture reading, and story narration. Each child is gently guided to build vocabulary and communication skills.
-                </p>
-            </div>
-
-            <div class="activity-card">
-                <h3 class="activity-title">
-                    <span class="activity-emoji">➕</span>
-                    Concept-Based Numeracy
-                </h3>
-                <p class="activity-description">
-                    Children explore numbers in fun ways through number writing, counting activities, basic addition & subtraction, shapes, patterns, and measurement games. These help build strong problem-solving and reasoning abilities.
-                </p>
-            </div>
-
-            <div class="activity-card">
-                <h3 class="activity-title">
-                    <span class="activity-emoji">🎨</span>
-                    Creative Art & Expression
-                </h3>
-                <p class="activity-description">
-                    Our budding artists enjoy drawing, painting, paper folding, craft-making, and festival-themed artwork that develop imagination and enhance fine motor coordination.
-                </p>
-            </div>
-
-            <div class="activity-card">
-                <h3 class="activity-title">
-                    <span class="activity-emoji">🌈</span>
-                    Theme-Based Projects
-                </h3>
-                <p class="activity-description">
-                    Every month, we introduce interesting themes like My Family, Seasons, Transport, Community Helpers, and Healthy Habits, with related activities, show & tell, and discussions that broaden knowledge and spark curiosity.
-                </p>
-            </div>
-
-            <div class="activity-card">
-                <h3 class="activity-title">
-                    <span class="activity-emoji">🎶</span>
-                    Music, Dance & Drama
-                </h3>
-                <p class="activity-description">
-                    Children participate in rhymes, action songs, classical and freestyle dance, and role-play to build stage confidence, self-expression, and rhythm.
-                </p>
-            </div>
-
-            <div class="activity-card">
-                <h3 class="activity-title">
-                    <span class="activity-emoji">🧠</span>
-                    Cognitive & Logical Games
-                </h3>
-                <p class="activity-description">
-                    Through board games, puzzles, sequencing cards, sorting, and classification activities, we encourage thinking skills, memory development, and focus.
-                </p>
-            </div>
-
-            <div class="activity-card">
-                <h3 class="activity-title">
-                    <span class="activity-emoji">🌿</span>
-                    Environmental Learning & Outdoor Play
-                </h3>
-                <p class="activity-description">
-                    Our little explorers enjoy nature walks, gardening, playground games, and physical exercises that promote fitness, observation, and respect for nature.
-                </p>
-            </div>
-
-            <div class="activity-card">
-                <h3 class="activity-title">
-                    <span class="activity-emoji">🧘‍♂</span>
-                    Yoga & Mindfulness
-                </h3>
-                <p class="activity-description">
-                    Daily sessions of kids' yoga, meditation, and breathing exercises help improve concentration, balance emotions, and build inner calmness.
-                </p>
-            </div>
-
-            <div class="activity-card">
-                <h3 class="activity-title">
-                    <span class="activity-emoji">🤝</span>
-                    Life Skills & Moral Education
-                </h3>
-                <p class="activity-description">
-                    We focus on developing responsible and kind behavior through group tasks, manners practice, self-care routines, and value-based stories that instill empathy and independence.
-                </p>
-            </div>
-
-            <div class="closing-text">
-                <p>
-                    <span class="activity-emoji">💫</span> At Sunny Skies, our K.G. activities aim to shape <span class="highlight">confident, kind, and curious learners</span> who are ready to step into formal schooling with joy and self-assurance. We believe in creating a classroom full of <span class="highlight">laughter, learning, and love!</span>
-                </p>
-            </div>
-        </div>
-
-        <div style="text-align: center; margin-top: 3rem;">
-            <a href="https://forms.gle/BBnaciFZCXwcTWtg8" target="_blank" class="back-button">
-                <span>📝</span>
-                <span>Apply for KG Program</span>
-            </a>
         </div>
     </div>
-</body>
+</section>
 
+    <!-- Enroll CTA (updated text) -->
+    <section class="enroll-section">
+        <div class="enroll-overlay"></div>
+        <div class="enroll-container">
+            <div class="enroll-box">
+                <span class="enroll-tag">ENROLL NOW!</span>
+                <h2>Secure Your Child's KG Seat!</h2>
+                <p>
+  At <strong>Sunny Skies Playway</strong>, we are dedicated to making your child’s early education an enriching and joyful journey. If you’re ready to give your child the best start in life, <strong>contact us today</strong> to know more about our programs or to schedule a school visit.
+</p>
+                <div class="enroll-buttons">
+                    <a href="Contact.html" class="btn red">Contact Us Now →</a>
+                    <a href="tel:7289026979" class="btn red outline">Call Us Now →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+       <footer class="ps-footer" style="background: linear-gradient(to bottom, #0a1f44, #001122); color: #e0e0ff; padding: 40px 0 20px; font-family: Arial, sans-serif;">
+  <div class="ps-container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+    <div class="ps-row" style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 30px;">
+      
+      <!-- About + Logo -->
+      <div class="ps-col ps-about" style="flex: 1; min-width: 250px;">
+        <div class="ps-logo">
+          <img src="./sunny-skies-logo.png" alt="Sunny Skies Playway and Daycare" style="max-width: 180px; margin-bottom: 15px;">
+        </div>
+        <p style="line-height: 1.6; margin-bottom: 20px;">
+          We provide a safe, joyful and creative learning environment for kids. Our mission is to build confidence, creativity and curiosity in every child.
+        </p>
+        <!-- Social Icons -->
+        <div class="ps-social" style="display: flex; gap: 15px;">
+          <a href="https://www.facebook.com/share/1ArvigKTLv/" class="fb" style="color: #e0e0ff; font-size: 20px;"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/sunnyskies_playway_daycare?igsh=MTVudmp6MnB5cHBvMA==" class="ig" style="color: #e0e0ff; font-size: 20px;"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="yt" style="color: #e0e0ff; font-size: 20px;"><i class="fab fa-youtube"></i></a>
+          <a href="https://wa.me/+917289026979?text=Hi%20Sunny%20Skies!" class="wa" style="color: #e0e0ff; font-size: 20px;"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="ps-col" style="flex: 1; min-width: 180px;">
+        <h4 style="color: #FDD835; margin-bottom: 15px; font-size: 18px;">Quick Links</h4>
+        <ul style="list-style: none; padding: 0; line-height: 2;">
+          <li><a href="index.html" style="color: #e0e0ff; text-decoration: none;">Home</a></li>
+          <li><a href="about-us.html" style="color: #e0e0ff; text-decoration: none;">About Us</a></li>
+          <li><a href="nursery.html" style="color: #e0e0ff; text-decoration: none;">Programs</a></li>
+          <li><a href="Gallery.html" style="color: #e0e0ff; text-decoration: none;">Gallery</a></li>
+          <li><a href="Contact.html" style="color: #e0e0ff; text-decoration: none;">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Programs -->
+      <div class="ps-col" style="flex: 1; min-width: 180px;">
+        <h4 style="color: #FDD835; margin-bottom: 15px; font-size: 18px;">Our Programs</h4>
+        <ul style="list-style: none; padding: 0; line-height: 2;">
+          <li><a href="nursery.html" style="color: #e0e0ff; text-decoration: none;">Nursery</a></li>
+          <li><a href="kg.html" style="color: #e0e0ff; text-decoration: none;">KG</a></li>
+          <li><a href="nightcare.html" style="color: #e0e0ff; text-decoration: none;">Night Care</a></li>
+          <li><a href="daycare.html" style="color: #e0e0ff; text-decoration: none;">Day Care</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="ps-col ps-contact" style="flex: 1; min-width: 250px;">
+        <h4 style="color: #FDD835; margin-bottom: 15px; font-size: 18px;">Contact Us</h4>
+        <p class="contact-line" style="margin: 10px 0; display: flex; align-items: center; gap: 10px;">
+          <i class="fas fa-map-marker-alt" style="color: #FDD835;"></i>
+          SUNNY Skies Playway and Daycare 7/118, Sec 2 Rajendra Nagar, near Karan Gate Chowki, Sahibabad Ghaziabad
+        </p>
+        <p class="contact-line" style="margin: 10px 0; display: flex; align-items: center; gap: 10px;">
+          <i class="fas fa-phone-alt" style="color: #FDD835;"></i>
+          +91 7289026979
+        </p>
+        <p class="contact-line" style="margin: 10px 0; display: flex; align-items: center; gap: 10px;">
+          <i class="fas fa-phone-alt" style="color: #FDD835;"></i>
+          +91 7503232218
+        </p>
+        <p class="contact-line" style="margin: 10px 0; display: flex; align-items: center; gap: 10px;">
+          <i class="fas fa-envelope" style="color: #FDD835;"></i>
+          sunnyskies1674@gmail.com
+        </p>
+      </div>
+    </div>
+
+    <!-- Popular Searches Section - Added just above bottom -->
+    <div class="popular-searches" style="margin: 40px 0 30px; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px;">
+      
+  <div class="marquee-container" style="overflow: hidden; white-space: nowrap; position: relative; max-width: 100%;">
+       <div class="marquee" style="display: inline-flex; animation: scroll-left 45s linear infinite; gap: 18px; padding: 0 30px; will-change: transform;">
+    
+    <!-- Keywords with clickable links -->
+    <a href="nightcare.html" target="_blank" style="text-decoration: none;">
+      <span style="background: rgba(255,215,0,0.15); padding: 10px 24px; border-radius: 30px; font-weight: bold; font-size: 15px; color: #ffd700; white-space: nowrap; border: 1px solid rgba(255,215,0,0.3); display: inline-block;">
+        Best Night Care in Raj Bagh Ghaziabad
+      </span>
+    </a>
+    <a href="kg.html" target="_blank" style="text-decoration: none;">
+      <span style="background: rgba(255,215,0,0.15); padding: 10px 24px; border-radius: 30px; font-weight: bold; font-size: 15px; color: #ffd700; white-space: nowrap; border: 1px solid rgba(255,215,0,0.3); display: inline-block;">
+        Best KG School in rajendra nagar Ghaziabad
+      </span>
+    </a>
+    <a href="https://sanfortschools.com/branch/rajendranagar" target="_blank" style="text-decoration: none;">
+      <span style="background: rgba(255,215,0,0.15); padding: 10px 24px; border-radius: 30px; font-weight: bold; font-size: 15px; color: #ffd700; white-space: nowrap; border: 1px solid rgba(255,215,0,0.3); display: inline-block;">best play school in rajendra nagar sahibabad</span>
+    </a>
+    <a href="daycare.html" target="_blank" style="text-decoration: none;">
+      <span style="background: rgba(255,215,0,0.15); padding: 10px 24px; border-radius: 30px; font-weight: bold; font-size: 15px; color: #ffd700; white-space: nowrap; border: 1px solid rgba(255,215,0,0.3); display: inline-block;">sunny skies playway daycare rajendra nagar</span>
+    </a>
+    <a href="nursery.html" target="_blank" style="text-decoration: none;">
+      <span style="background: rgba(255,215,0,0.15); padding: 10px 24px; border-radius: 30px; font-weight: bold; font-size: 15px; color: #ffd700; white-space: nowrap; border: 1px solid rgba(255,215,0,0.3); display: inline-block;">Best Pre-Nursery & Nursery in Radheyshyam Park</span>
+    </a>
+    <a href="https://makoons.com/nursery-school-admission-in-sahibabad-sector-2-ghaziabad-delhi-ncr" target="_blank" style="text-decoration: none;">
+      <span style="background: rgba(255,215,0,0.15); padding: 10px 24px; border-radius: 30px; font-weight: bold; font-size: 15px; color: #ffd700; white-space: nowrap; border: 1px solid rgba(255,215,0,0.3); display: inline-block;">best preschool rajendra nagar ghaziabad</span>
+    </a>
+    <a href="daycare.html" target="_blank" style="text-decoration: none;">
+      <span style="background: rgba(255,215,0,0.15); padding: 10px 24px; border-radius: 30px; font-weight: bold; font-size: 15px; color: #ffd700; white-space: nowrap; border: 1px solid rgba(255,215,0,0.3); display: inline-block;">daycare near sahibabad rajendra nagar</span>
+    </a>
+    <a href="https://www.sunnyskies.in/" target="_blank" style="text-decoration: none;">
+      <span style="background: rgba(255,215,0,0.15); padding: 10px 24px; border-radius: 30px; font-weight: bold; font-size: 15px; color: #ffd700; white-space: nowrap; border: 1px solid rgba(255,215,0,0.3); display: inline-block;">playgroup admission sunny skies 2026</span>
+    </a>
+
+    <!-- Duplicates for seamless infinite loop (same links) -->
+    <a href="https://sanfortschools.com/branch/rajendranagar" target="_blank" style="text-decoration: none;">
+      <span style="background: rgba(255,215,0,0.15); padding: 10px 24px; border-radius: 30px; font-weight: bold; font-size: 15px; color: #ffd700; white-space: nowrap; border: 1px solid rgba(255,215,0,0.3); display: inline-block;">best play school in rajendra nagar sahibabad</span>
+    </a>
+    <a href="https://www.sunnyskies.in/" target="_blank" style="text-decoration: none;">
+      <span style="background: rgba(255,215,0,0.15); padding: 10px 24px; border-radius: 30px; font-weight: bold; font-size: 15px; color: #ffd700; white-space: nowrap; border: 1px solid rgba(255,215,0,0.3); display: inline-block;">sunny skies playway daycare rajendra nagar</span>
+    </a>
+    <a href="nursery.html" target="_blank" style="text-decoration: none;">
+      <span style="background: rgba(255,215,0,0.15); padding: 10px 24px; border-radius: 30px; font-weight: bold; font-size: 15px; color: #ffd700; white-space: nowrap; border: 1px solid rgba(255,215,0,0.3); display: inline-block;">nursery admission near karan gate sahibabad</span>
+    </a>
+    <a href="https://makoons.com/nursery-school-admission-in-sahibabad-sector-2-ghaziabad-delhi-ncr" target="_blank" style="text-decoration: none;">
+      <span style="background: rgba(255,215,0,0.15); padding: 10px 24px; border-radius: 30px; font-weight: bold; font-size: 15px; color: #ffd700; white-space: nowrap; border: 1px solid rgba(255,215,0,0.3); display: inline-block;">best preschool rajendra nagar ghaziabad</span>
+    </a>
+    <a href="https://makoons.com/nursery-school-admission-in-sahibabad-sector-2-ghaziabad-delhi-ncr" target="_blank" style="text-decoration: none;">
+      <span style="background: rgba(255,215,0,0.15); padding: 10px 24px; border-radius: 30px; font-weight: bold; font-size: 15px; color: #ffd700; white-space: nowrap; border: 1px solid rgba(255,215,0,0.3); display: inline-block;">
+     <a href="https://makoons.com/nursery-school-admission-in-sahibabad-sector-2-ghaziabad-delhi-ncr" target="_blank" style="text-decoration: none;">
+      <span style="background: rgba(255,215,0,0.15); padding: 10px 24px; border-radius: 30px; font-weight: bold; font-size: 15px; color: #ffd700; white-space: nowrap; border: 1px solid rgba(255,215,0,0.3); display: inline-block;">best preschool rajendra nagar ghaziabad</span>
+    </a></span>
+    </a>
+    <a href="index.html" target="_blank" style="text-decoration: none;">
+      <span style="background: rgba(255,215,0,0.15); padding: 10px 24px; border-radius: 30px; font-weight: bold; font-size: 15px; color: #ffd700; white-space: nowrap; border: 1px solid rgba(255,215,0,0.3); display: inline-block;">daycare near sahibabad rajendra nagar</span>
+    </a>
+    <a href="https://www.sunnyskies.in/" target="_blank" style="text-decoration: none;">
+      <span style="background: rgba(255,215,0,0.15); padding: 10px 24px; border-radius: 30px; font-weight: bold; font-size: 15px; color: #ffd700; white-space: nowrap; border: 1px solid rgba(255,215,0,0.3); display: inline-block;">Best Preschool in Shalimar Garden Extension 1</span>
+    </a>
+    <a href="daycare.html" target="_blank" style="text-decoration: none;">
+      <span style="background: rgba(255,215,0,0.15); padding: 10px 24px; border-radius: 30px; font-weight: bold; font-size: 15px; color: #ffd700; white-space: nowrap; border: 1px solid rgba(255,215,0,0.3); display: inline-block;">Preschool and Daycare Programs in Raj Bagh</span>
+    </a>
+      <a href="nursery.html" target="_blank" style="text-decoration: none;">
+      <span style="background: rgba(255,215,0,0.15); padding: 10px 24px; border-radius: 30px; font-weight: bold; font-size: 15px; color: #ffd700; white-space: nowrap; border: 1px solid rgba(255,215,0,0.3); display: inline-block;">Pre nursery admission in Pasonda</span>
+    </a>
+  </div>
+</div>
+
+      <style>
+        @keyframes scroll-left {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .marquee-container:hover .marquee {
+          animation-play-state: paused;
+        }
+      </style>
+    </div>
+
+    <!-- Bottom -->
+    <div class="ps-bottom" style="text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; font-size: 14px;">
+      <p>© 2026 Sunny Skies Playway and Daycare. All Rights Reserved.</p>
+      <p>Designed by <a href="https://webtechrainbow.in" target="_blank" style="color: #cbd5e1; text-decoration: none;">Webtech Rainbow</a>
+</p>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- Font Awesome (agar pehle se nahi hai to head me add karein) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<div class="social-float-icons">
+
+    <!-- Facebook -->
+    <a href="https://www.facebook.com/share/1ArvigKTLv/" target="_blank" class="float-icon facebook">
+        <i class="fab fa-facebook-f"></i>
+        <span class="slide-label">FACEBOOK</span>
+    </a>
+
+    <!-- Instagram -->
+    <a href="https://www.instagram.com/sunnyskies_playway_daycare?igsh=MTVudmp6MnB5cHBvMA==" target="_blank" class="float-icon instagram">
+        <i class="fab fa-instagram"></i>
+        <span class="slide-label">INSTAGRAM</span>
+    </a>
+
+    <!-- WhatsApp -->
+    <a href="https://wa.me/917289026979" target="_blank" class="float-icon whatsapp">
+        <i class="fab fa-whatsapp"></i>
+        <span class="slide-label">WHATSAPP</span>
+    </a>
+
+</div>
+
+<style>
+.social-float-icons {
+    position: fixed;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 99999;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.float-icon {
+    position: relative;
+    width: 55px;
+    height: 55px;
+    border-radius: 0 30px 30px 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    overflow: hidden;
+    text-decoration: none;
+    transition: 0.35s ease;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.2);
+    padding-right: 6px;
+}
+
+/* Center Icon Circle */
+.float-icon i {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+/* Slide Label */
+.slide-label {
+    position: absolute;
+    right: 55px;
+    top: 0;
+    height: 55px;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+    font-weight: 700;
+    padding-left: 12px;
+    color: #fff;
+    opacity: 0;
+    transition: 0.35s ease;
+    border-radius: 30px 0 0 30px;
+}
+
+.float-icon:hover {
+    width: 210px;
+}
+
+.float-icon:hover .slide-label {
+    opacity: 1;
+}
+
+/* Facebook */
+.facebook { background: #3b5998; }
+.facebook i { color:#3b5998; }
+.facebook .slide-label { background:#3b5998; }
+
+/* Instagram */
+.instagram { background: #e4405f; }
+.instagram i { color:#e4405f; }
+.instagram .slide-label { background:#e4405f; }
+
+/* WhatsApp */
+.whatsapp { background: #25d366; }
+.whatsapp i { color:#25d366; }
+.whatsapp .slide-label { background:#25d366; }
+
+</style>
+    
+    <script>
+        // Custom Sun Cursor
+        const cursor = document.querySelector('.cursor');
+        const cursorFollower = document.querySelector('.cursor-follower');
+        let mouseX = 0, mouseY = 0;
+        let followerX = 0, followerY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            cursor.style.left = mouseX - 12 + 'px';
+            cursor.style.top = mouseY - 12 + 'px';
+        });
+
+        // Smooth follower movement
+        function animateFollower() {
+            followerX += (mouseX - followerX) * 0.1;
+            followerY += (mouseY - followerY) * 0.1;
+            cursorFollower.style.left = followerX - 25 + 'px';
+            cursorFollower.style.top = followerY - 25 + 'px';
+            requestAnimationFrame(animateFollower);
+        }
+        animateFollower();
+
+        // Hover effects for sun cursor
+        document.querySelectorAll('a, button, .card, .gallery-item').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursor.classList.add('cursor-hover');
+                cursorFollower.classList.add('cursor-hover');
+            });
+            el.addEventListener('mouseleave', () => {
+                cursor.classList.remove('cursor-hover');
+                cursorFollower.classList.remove('cursor-hover');
+            });
+        });
+
+        // Improved Dropdown Hover Behavior with Delay
+        let dropdownTimer;
+
+        document.querySelectorAll('.dropdown').forEach(dropdown => {
+            const content = dropdown.querySelector('.dropdown-content');
+
+            dropdown.addEventListener('mouseenter', () => {
+                clearTimeout(dropdownTimer);
+                content.classList.add('show');
+            });
+
+            dropdown.addEventListener('mouseleave', () => {
+                dropdownTimer = setTimeout(() => {
+                    content.classList.remove('show');
+                }, 250); // 250ms delay before hiding
+            });
+        });
+
+        // Program Cards Click Handler
+        document.querySelectorAll('.program-card').forEach(card => {
+            card.addEventListener('click', function () {
+                const link = this.getAttribute('data-link');
+                if (link) {
+                    window.location.href = link;
+                }
+            });
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Enhanced scroll-based theme transitions
+        const clouds = document.querySelector('.clouds');
+        const navbar = document.querySelector('.navbar');
+        const nightcareSection = document.querySelector('#nightcare');
+        let isLightMode = false;
+        let isNightMode = false;
+
+        window.addEventListener('scroll', () => {
+            const scrolled = window.scrollY;
+            const windowHeight = window.innerHeight;
+            const transitionStart = windowHeight * 0.3;
+
+            // Get nightcare section position
+            const nightcareRect = nightcareSection.getBoundingClientRect();
+            const nightcareInView = nightcareRect.top <= windowHeight * 0.5;
+
+            // Night care section transition (Day to Night)
+            if (nightcareInView && !isNightMode) {
+                isNightMode = true;
+                isLightMode = false;
+                document.body.classList.remove('scrolled-bg');
+                document.body.classList.add('night-theme');
+                navbar.classList.remove('scrolled-navbar');
+                clouds.classList.remove('visible');
+            }
+            // Regular day transition
+            else if (scrolled >= transitionStart && !isLightMode && !nightcareInView) {
+                isLightMode = true;
+                isNightMode = false;
+                document.body.classList.add('scrolled-bg');
+                document.body.classList.remove('night-theme');
+                navbar.classList.add('scrolled-navbar');
+
+                setTimeout(() => {
+                    clouds.classList.add('visible');
+                }, 800);
+            }
+            // Back to dark theme at top
+            else if (scrolled < transitionStart && (isLightMode || isNightMode)) {
+                isLightMode = false;
+                isNightMode = false;
+                document.body.classList.remove('scrolled-bg');
+                document.body.classList.remove('night-theme');
+                navbar.classList.remove('scrolled-navbar');
+                clouds.classList.remove('visible');
+            }
+
+            // Regular navbar opacity
+            if (!isLightMode && !isNightMode) {
+                if (scrolled > 100) {
+                    navbar.style.background = 'rgba(15, 15, 35, 0.98)';
+                } else {
+                    navbar.style.background = 'rgba(15, 15, 35, 0.95)';
+                }
+            }
+        });
+        window.addEventListener("DOMContentLoaded", function () {
+            const video = document.getElementById("introVideo");
+            setTimeout(() => {
+                video.play().catch(err => {
+                    // fallback: video couldn't autoplay (e.g. user interaction required)
+                    console.warn("Video failed to autoplay:", err);
+                });
+            }, 5000); // 5000 ms = 5 seconds
+        });
+
+
+        // Gallery item interactions
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', function () {
+                this.style.animation = 'none';
+                setTimeout(() => {
+                    this.style.animation = 'floatShape 2s ease-in-out';
+                }, 10);
+            });
+        });
+
+        // Add some dynamic effects to doodles
+        document.querySelectorAll('.doodle').forEach((doodle, index) => {
+            setInterval(() => {
+                const random = Math.random();
+                if (random < 0.1) {
+                    doodle.style.opacity = '0.3';
+                    setTimeout(() => {
+                        doodle.style.opacity = '0.1';
+                    }, 500);
+                }
+            }, 3000 + (index * 1000));
+        });
+
+        // Video parallax effect
+        (function () {
+            const wrapper = document.querySelector('.video-parallax');
+            const vid = wrapper ? wrapper.querySelector('video') : null;
+
+            if (wrapper && vid) {
+                function handleScroll() {
+                    const rect = wrapper.getBoundingClientRect();
+                    const vh = window.innerHeight;
+                    const offset = rect.top - vh;
+                    const ratio = offset / (vh + rect.height);
+
+                    vid.style.transform = `translate(-50%, calc(-50% + ${ratio * 100}%))`;
+                }
+
+                handleScroll();
+                window.addEventListener('scroll', handleScroll, { passive: true });
+            }
+        })();
+    </script>
+    <script>
+// Hamburger toggle
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('navMenu');
+
+hamburger?.addEventListener('click', () => {
+  navMenu.classList.toggle('active');
+  hamburger.classList.toggle('active');
+});
+
+// Close menu on outside click
+document.addEventListener('click', (e) => {
+  if (!navMenu?.contains(e.target) && !hamburger?.contains(e.target)) {
+    navMenu?.classList.remove('active');
+    hamburger?.classList.remove('active');
+  }
+});
+
+// Dropdown toggle with icon rotation
+document.querySelectorAll('.dropdown > a').forEach(link => {
+  link.addEventListener('click', function(e) {
+    const isMobile = window.innerWidth <= 768;
+    const content = this.nextElementSibling;
+
+    if (content && content.classList.contains('dropdown-content')) {
+      if (isMobile) {
+        e.preventDefault(); // no jump on mobile
+        content.classList.toggle('show');
+        this.parentElement.classList.toggle('show'); // for icon rotate
+      }
+      // desktop pe hover already handle kar raha hai
+    }
+  });
+});
+</script>
+
+</body>
 </html>
