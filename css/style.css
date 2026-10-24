@@ -1044,7 +1044,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url("../media/images/global.jpg");
+            background: url("../media/images/preschool-banner.jpg");
             background-size: cover;
             background-repeat: no-repeat;
             opacity: 0.3;
@@ -2062,7 +2062,7 @@
     height: 90vh;
     min-height: 520px;
     max-height: 950px;
-    background: url('../media/images/global.jpg') center / cover no-repeat;
+    background: url('../media/images/preschool-banner.jpg') center / cover no-repeat;
     background-position: center 45%;          /* Default: thoda upar se center – image ke hisaab se adjust kar sakte ho */
     position: relative;
     display: flex;
@@ -2550,7 +2550,7 @@ body {
     height: 90vh;
     min-height: 520px;
     max-height: 950px;
-    background: url('../media/images/global.jpg') center / cover no-repeat;
+    background: url('../media/images/preschool-banner.jpg') center / cover no-repeat;
     background-position: center 45%;
     position: relative;
     display: flex;
@@ -3176,6 +3176,17 @@ body {
     .kg-image-wrap img { transform:none; }
 }
 
+/* ===== Different Banner Images ===== */
+
+.preschool-banner {
+    background: url('../media/images/preschool-banner.jpg') center / cover no-repeat !important;
+    background-position: center 40% !important;
+}
+
+.nursery-banner {
+    background: url('../media/images/global.jpg') center / cover no-repeat !important;
+    background-position: center 45% !important;
+}
  
 
 
